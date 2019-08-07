@@ -36,10 +36,8 @@ public class MainActivity extends AppCompatActivity {
         cookieManager.setAcceptCookie(true);
         cookieManager.setCookie(".basf.net", "mobile=true");
         try {
-            //https://stubidp.sustainsys.com/Metadata
-            URL idpURL = new URL("https://federation-qa.basf.com/nidp/saml2/metadata");
-            //http://w7ddwx2q1.basfad.basf.net:2181/Saml2/SignIn?idp=
-            webView.loadUrl("https://www.d-ticket-dev.brasil.basf.net"+idpURL.toURI().toString());
+            URL idpURL = new URL("https://stubidp.sustainsys.com/Metadata");
+            webView.loadUrl("http://localhost:2181"+idpURL.toURI().toString());
         } catch (Exception e) {
             Log.d("SAML2", e.getMessage());
         }
